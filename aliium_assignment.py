@@ -63,6 +63,7 @@ def main():
     # Streamlit app interface
     st.title('Blockchain Transaction Analytics 📈')
     st.text('Transactions and Volume(USD) of xAUT')
+    st.text('Refreshed hourly')
 
     
 
