@@ -56,7 +56,7 @@ def main():
     transfers = get_transfers(cur)
 
     # Button to fetch data
-    st.button("Fetch Data"):
+    st.button("Fetch Data")
 
 
 if __name__ == "__main__":
