@@ -67,7 +67,7 @@ def main():
                     transfers = get_transfers(cur)
                     
                     # Display filtered data in a table
-                    st.dataframe(filtered_transfers)
+                    st.dataframe(transfers)
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
