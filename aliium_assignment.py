@@ -24,8 +24,7 @@ def get_transfers(cur, start_date=None, end_date=None):
     sql = """
     SELECT * from EZ_TOKEN_TRANSFERS
     """
-    if start_date and end_date:
-        sql += f" WHERE block_timestamp >= '{start_date}' AND block_timestamp <= '{end_date}'"
+    
     try:
         # Execute the SQL query
         cur.execute(sql)
@@ -67,7 +66,7 @@ def main():
     
 
     
-    start_date, end_date = date_range
+    
     df = load_data()
     
     # Create hourly aggregates
