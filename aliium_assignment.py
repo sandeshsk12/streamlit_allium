@@ -53,25 +53,11 @@ def main():
     # Streamlit app interface
     st.title("Token Transfers Data")
     st.write("This app retrieves token transfer data from Snowflake and displays it.")
-
-    # User input for data range (optional)
-    st.sidebar.header("Filters")
-
+    transfers = get_transfers(cur)
 
     # Button to fetch data
-    if st.button("Fetch Data"):
-        try:
-            # Establish a connection using a context manager
-            with snowflake.connector.connect(**SNOWFLAKE_CONFIG) as conn:
-                with conn.cursor() as cur:
-                    transfers = get_transfers(cur)
-                    
-                    # Display filtered data in a table
-                    st.dataframe(transfers)
+    st.button("Fetch Data"):
 
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
-            logger.error("An error occurred during database operations: %s", e)
 
 if __name__ == "__main__":
     main()
