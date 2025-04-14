@@ -53,7 +53,23 @@ def main():
     # Streamlit app interface
     st.title("Token Transfers Data")
     st.write("This app retrieves token transfer data from Snowflake and displays it.")
-    transfers = get_transfers(cur)
+
+    with snowflake.connector.connect(**SNOWFLAKE_CONFIG) as conn:
+ 
+
+                with conn.cursor() as cur:
+ 
+
+                    transfers = get_transfers(cur)
+ 
+
+                    
+ 
+
+                    # Display filtered data in a table
+ 
+
+                    st.dataframe(transfers)
 
     # Button to fetch data
     st.button("Fetch Data")
