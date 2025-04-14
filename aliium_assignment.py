@@ -69,8 +69,7 @@ def main():
                     # Display filtered data in a table
  
 
-                    st.dataframe(transfers)
-
+                    st.dataframe(transfers, use_container_width=True)
     # Button to fetch data
     st.button("Fetch Data")
 
