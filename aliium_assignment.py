@@ -56,8 +56,7 @@ def main():
 
     # User input for data range (optional)
     st.sidebar.header("Filters")
-    start_date = st.sidebar.date_input("Start date", datetime(2023, 1, 1))
-    end_date = st.sidebar.date_input("End date", datetime(2023, 12, 31))
+
 
     # Button to fetch data
     if st.button("Fetch Data"):
@@ -66,14 +65,6 @@ def main():
             with snowflake.connector.connect(**SNOWFLAKE_CONFIG) as conn:
                 with conn.cursor() as cur:
                     transfers = get_transfers(cur)
-                    st.write(f"Showing data between {start_date} and {end_date}")
-
-                    # Filter data based on the selected date range
-                    transfers['block_timestamp'] = pd.to_datetime(transfers['block_timestamp'])
-                    filtered_transfers = transfers[
-                        (transfers['block_timestamp'] >= pd.to_datetime(start_date)) &
-                        (transfers['block_timestamp'] <= pd.to_datetime(end_date))
-                    ]
                     
                     # Display filtered data in a table
                     st.dataframe(filtered_transfers)
