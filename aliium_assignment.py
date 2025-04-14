@@ -62,7 +62,7 @@ def load_data():
 def main():
     # Streamlit app interface
     st.title('Blockchain Transaction Analytics 📈')
-    st.subtitle('Transactions and Volume(USD) of xAUT')
+    st.text('Transactions and Volume(USD) of xAUT')
 
     
 
