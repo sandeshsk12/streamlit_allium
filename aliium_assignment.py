@@ -72,7 +72,7 @@ def main():
     df = load_data()
     
     # Create hourly aggregates
-    hourly = df.set_index('block_timestamp').resample('H').agg({
+    hourly = df.set_index('block_timestamp').resample('h').agg({
         'amount_usd': 'sum',
         'transaction_hash': 'nunique'
     }).reset_index().rename(columns={
