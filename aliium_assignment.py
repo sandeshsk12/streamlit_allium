@@ -64,12 +64,17 @@ def main():
     st.title('Blockchain Transaction Analytics 📈')
     st.text('Transactions and Volume(USD) of xAUT')
     st.text('Refreshed hourly')
-
     
-
+    # Add a refresh button
+    refresh = st.button('Refresh Data')
     
-    
-    df = load_data()
+    if refresh:
+        # Clear the cache and reload data
+        st.cache_data.clear()  
+        df = load_data()
+    else:
+        # Load cached data
+        df = load_data()
     
     # Create hourly aggregates
     hourly = df.set_index('block_timestamp').resample('h').agg({
@@ -93,7 +98,6 @@ def main():
     )
 
     st.plotly_chart(fig, use_container_width=True)
-   
 
 if __name__ == "__main__":
     main()
