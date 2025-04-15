@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-# Set up logging
+# Set up logging  
 logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger(__name__)
 
