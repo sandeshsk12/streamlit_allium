@@ -15,6 +15,8 @@ SNOWFLAKE_CONFIG = {
     "user": st.secrets["snowflake"]["user"],
     "password": st.secrets["snowflake"]["password"],
     "account": st.secrets["snowflake"]["account"],
+    "token":st.secrets["snowflake"]["token"],
+    "authenticator":"oauth",
     "warehouse": "COMPUTE_WH",
     "database": "ALLIUM_ASSIGNMENT",
     "schema": "TOKEN_TRANSFERS"
